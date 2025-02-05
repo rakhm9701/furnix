@@ -60,11 +60,11 @@ export class ProductService {
 
 		if (memberId) {
 			const viewInput = { memberId: memberId, viewRefId: productId, viewGroup: ViewGroup.PRODUCT };
-			// const newView = await this.viewService.recordView(viewInput);
-			// if (newView) {
-			// 	await this.productStatsEditor({ _id: productId, targetKey: 'productViews', modifier: 1 });
-			// 	targetProduct.productViews++;
-			// }
+			const newView = await this.viewService.recordView(viewInput);
+			if (newView) {
+				await this.productStatsEditor({ _id: productId, targetKey: 'productViews', modifier: 1 });
+				targetProduct.productViews++;
+			}
 
 			const likeInput = { memberId: memberId, likeRefId: productId, likeGroup: LikeGroup.PRODUCT };
 			targetProduct.meLiked = await this.likeService.checkLikeExistence(likeInput);
@@ -185,9 +185,9 @@ export class ProductService {
 	}
 
 	//getVisited
-	// public async getVisited(memberId: ObjectId, input: OrdinaryInquiry): Promise<Products> {
-	// 	return await this.viewService.getVisitedProducts(memberId, input);
-	// }
+	public async getVisited(memberId: ObjectId, input: OrdinaryInquiry): Promise<Products> {
+		return await this.viewService.getVisitedProducts(memberId, input);
+	}
 
 	// getDesignerProducts
 	public async getDesignerProducts(memberId: Object, input: DesignerProductsInquiry): Promise<Products> {
