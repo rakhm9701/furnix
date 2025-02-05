@@ -3,6 +3,7 @@ import { MemberModule } from './member/member.module';
 import { LikeService } from './like/like.service';
 import { LikeModule } from './like/like.module';
 import { ViewResolver } from './view/view.resolver';
+import { BoardArticleModule } from './board-article/board-article.module';
 import { CommentModule } from './comment/comment.module';
 import { CommentResolver } from './comment/comment.resolver';
 import { FollowModule } from './follow/follow.module';
@@ -13,7 +14,7 @@ import { ViewModule } from './view/view.module';
 import { ViewResolver } from './view/view.resolver';
 
 @Module({
-  imports: [MemberModule, LikeModule, ViewModule, AuthModule, ProductModule, FollowModule, CommentModule],
+  imports: [MemberModule, LikeModule, ViewModule, AuthModule, ProductModule, FollowModule, CommentModule, BoardArticleModule],
   providers: [LikeService, ViewResolver, AuthService, CommentResolver]
 })
 export class ComponentsModule {}

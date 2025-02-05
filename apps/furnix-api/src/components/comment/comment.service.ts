@@ -2,7 +2,7 @@ import { BadRequestException, Injectable, InternalServerErrorException } from '@
 import { InjectModel } from '@nestjs/mongoose';
 import { MemberService } from '../member/member.service';
 import { ProductService } from '../product/product.service';
-// import { BoardArticleService } from '../board-article/board-article.service';
+import { BoardArticleService } from '../board-article/board-article.service';
 import { Model, ObjectId } from 'mongoose';
 import { CommentInput, CommentsInquiry } from '../../libs/dto/comment/comment.input';
 import { Direction, Message } from '../../libs/enums/common.enum';
@@ -40,13 +40,13 @@ export class CommentService {
 					modifier: 1,
 				});
 				break;
-			// case CommentGroup.ARTICLE:
-			// 	await this.boardArticleService.boardArticleStatsEditor({
-			// 		_id: input.commentRefId,
-			// 		targetKey: 'articleComments',
-			// 		modifier: 1,
-			// 	});
-			// 	break;
+			case CommentGroup.ARTICLE:
+				await this.boardArticleService.boardArticleStatsEditor({
+					_id: input.commentRefId,
+					targetKey: 'articleComments',
+					modifier: 1,
+				});
+				break;
 			case CommentGroup.MEMBER:
 				await this.memberService.memberStatsEditor({
 					_id: input.commentRefId,
