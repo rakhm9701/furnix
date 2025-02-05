@@ -4,7 +4,7 @@ import { ObjectId } from 'mongoose';
 import { ProductColor, ProductLocation, ProductSize, ProductStatus, ProductType } from '../../enums/product.enum';
 
 @InputType()
-// PropertyUpdate
+// ProductUpdate
 export class ProductUpdate {
 	@IsNotEmpty()
 	@Field(() => String)

@@ -18,7 +18,7 @@ export class CommentService {
 		@InjectModel('Comment') private readonly commentModel: Model<Comment>,
 		private readonly memberService: MemberService,
 		private readonly productService: ProductService,
-		// private readonly boardArticleService: BoardArticleService,
+		private readonly boardArticleService: BoardArticleService,
 	) {}
 	//createComment
 	public async createComment(memberId: ObjectId, input: CommentInput): Promise<Comment> {

@@ -1,7 +1,6 @@
 import { Schema } from 'mongoose';
 import { ProductColor, ProductLocation, ProductSize, ProductStatus, ProductType } from '../libs/enums/product.enum';
 
-
 const ProductSchema = new Schema(
 	{
 		productType: {
@@ -54,17 +53,7 @@ const ProductSchema = new Schema(
 			required: true,
 		},
 
-		productBeds: {
-			type: Number,
-			required: true,
-		},
-
-		propertyRooms: {
-			type: Number,
-			required: true,
-		},
-
-		propertyViews: {
+		productViews: {
 			type: Number,
 			default: 0,
 		},

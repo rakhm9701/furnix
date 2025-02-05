@@ -52,7 +52,7 @@ export class ProductService {
 	public async getProduct(memberId: ObjectId, productId: ObjectId): Promise<Product> {
 		const search: T = {
 			_id: productId,
-			propertyStatus: ProductStatus.ACTIVE,
+			productStatus: ProductStatus.ACTIVE,
 		};
 
 		const targetProduct: Product = await this.productModel.findOne(search).exec();
@@ -170,7 +170,7 @@ export class ProductService {
 
 		if (pricesRange) match.productPrice = { $gte: pricesRange.start, $lte: pricesRange.end };
 		if (periodsRange) match.createdAt = { $gte: periodsRange.start, $lte: periodsRange.end };
-		if (squaresRange) match.propertySquare = { $gte: squaresRange.start, $lte: squaresRange.end };
+		if (squaresRange) match.productSquare = { $gte: squaresRange.start, $lte: squaresRange.end };
 
 		if (text) match.productTitle = { $regex: new RegExp(text, 'i') };
 		if (options)

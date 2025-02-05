@@ -43,8 +43,8 @@ export class ProductResolver {
 	@Query((returns) => Product)
 	public async getProduct(@Args('productId') input: string, @AuthMember('_id') memberId: ObjectId): Promise<Product> {
 		console.log('Query: getProduct');
-		const propertyId = shapeOfMongoObjectId(input);
-		return await this.productService.getProduct(memberId, propertyId);
+		const productId = shapeOfMongoObjectId(input);
+		return await this.productService.getProduct(memberId, productId);
 	}
 
 	// updateProduct
@@ -145,7 +145,7 @@ export class ProductResolver {
 	@Mutation((returns) => Product)
 	public async removeProductByAdmin(@Args('productId') input: string): Promise<Product> {
 		console.log('Mutation: removeProductByAdmin');
-		const propertyId = shapeOfMongoObjectId(input);
-		return await this.productService.removeProductByAdmin(propertyId);
+		const productId = shapeOfMongoObjectId(input);
+		return await this.productService.removeProductByAdmin(productId);
 	}
 }
