@@ -6,7 +6,7 @@ import { availableOptions, availableProductSorts } from '../../config';
 import { Direction } from '../../enums/common.enum';
 
 @InputType()
-export class PropertyInput {
+export class ProductInput {
 	@IsNotEmpty()
 	@Field(() => ProductType)
 	productType: ProductType;
@@ -125,7 +125,7 @@ class PISearch {
 }
 
 @InputType()
-export class PropertiesInquiry {
+export class ProductsInquiry {
 	@IsNotEmpty()
 	@Min(1)
 	@Field(() => Int)

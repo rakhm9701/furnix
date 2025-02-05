@@ -44,8 +44,8 @@ export class LikeService {
 		return result ? [{ memberId: memberId, likeRefId: likeRefId, myFavorite: true }] : [];
 	}
 
-	//getFavoriteProperties
-	public async getFavoriteProperties(memberId: ObjectId, input: OrdinaryInquiry): Promise<Products> {
+	//getFavoriteProducts
+	public async getFavoriteProducts(memberId: ObjectId, input: OrdinaryInquiry): Promise<Products> {
 		const { page, limit } = input;
 		const match: T = { likeGroup: LikeGroup.PRODUCT, memberId: memberId };
 
