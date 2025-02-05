@@ -1,12 +1,22 @@
 import { Module } from '@nestjs/common';
-import { FurnixBatchController } from './furnix-batch.controller';
-import { FurnixBatchService } from './furnix-batch.service';
+import { BatchController } from './furnix-batch.controller';
+import { BatchService } from './furnix-batch.service';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
+import { ScheduleModule } from '@nestjs/schedule';
+import { MongooseModule } from '@nestjs/mongoose';
+import MemberSchema from 'apps/furnix-api/src/schemas/Member.model';
+import ProductSchema from 'apps/furnix-api/src/schemas/Product.model';
 
 @Module({
-  imports: [ConfigModule.forRoot(), DatabaseModule],
-  controllers: [FurnixBatchController],
-  providers: [FurnixBatchService],
+	imports: [
+		ConfigModule.forRoot(),
+		DatabaseModule,
+		ScheduleModule.forRoot(),
+		MongooseModule.forFeature([{ name: 'Product', schema: ProductSchema }]),
+		MongooseModule.forFeature([{ name: 'Member', schema: MemberSchema }]),
+	],
+	controllers: [BatchController],
+	providers: [BatchService],
 })
-export class FurnixBatchModule {}
+export class BatchModule {}
