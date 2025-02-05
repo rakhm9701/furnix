@@ -22,7 +22,7 @@ import { AuthGuard } from '../auth/gaurds/auth.guard';
 
 
 @Resolver()
-export class PropertyResolver {
+export class ProductResolver {
 	constructor(private readonly productService: ProductService) {}
 
 	// createProduct
