@@ -10,7 +10,7 @@
   "monorepo": true,
   "root": "apps/furnix-api",
   "projects": {
-    "furnix": {
+    "furnix-api": {
       "type": "application",
       "root": "apps/furnix-api",
       "entryFile": "main",
