@@ -9,6 +9,7 @@ import { ComponentsModule } from './components/components.module';
 import { DatabaseModule } from './database/database.module';
 import { T } from './libs/types/common';
 // import { SocketModule } from './socket/socket.module';
+import { SocketGateway } from './socket/socket.gateway';
 
 @Module({
 	imports: [
@@ -33,6 +34,6 @@ import { T } from './libs/types/common';
 		// SocketModule,
 	],
 	controllers: [AppController],
-	providers: [AppService, AppResolver],
+	providers: [AppService, AppResolver, SocketGateway],
 })
 export class AppModule {}
