@@ -8,8 +8,8 @@ import { AppResolver } from './app.resolver';
 import { ComponentsModule } from './components/components.module';
 import { DatabaseModule } from './database/database.module';
 import { T } from './libs/types/common';
-// import { SocketModule } from './socket/socket.module';
-import { SocketGateway } from './socket/socket.gateway';
+import { SocketModule } from './socket/socket.module';
+
 
 @Module({
 	imports: [
@@ -31,9 +31,9 @@ import { SocketGateway } from './socket/socket.gateway';
 		}),
 		ComponentsModule,
 		DatabaseModule,
-		// SocketModule,
+		SocketModule,
 	],
 	controllers: [AppController],
-	providers: [AppService, AppResolver, SocketGateway],
+	providers: [AppService, AppResolver],
 })
 export class AppModule {}

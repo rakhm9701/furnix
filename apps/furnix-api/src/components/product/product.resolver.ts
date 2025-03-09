@@ -2,7 +2,7 @@ import { Args, Mutation, Resolver, Query } from '@nestjs/graphql';
 import { ProductService } from './product.service';
 import { Product, Products } from '../../libs/dto/product/product';
 import {
-	DesignerProductsInquiry,
+	AgentProductsInquiry,
 	AllProductsInquiry,
 	OrdinaryInquiry,
 	ProductsInquiry,
@@ -26,7 +26,7 @@ export class ProductResolver {
 	constructor(private readonly productService: ProductService) {}
 
 	// createProduct
-	@Roles(MemberType.DESINER)
+	@Roles(MemberType.AGENT)
 	@UseGuards(RolesGuard)
 	@Mutation(() => Product)
 	public async createProduct(
@@ -48,7 +48,7 @@ export class ProductResolver {
 	}
 
 	// updateProduct
-	@Roles(MemberType.DESINER)
+	@Roles(MemberType.AGENT)
 	@UseGuards(RolesGuard)
 	@Mutation((returns) => Product)
 	public async updateProduct(
@@ -93,16 +93,16 @@ export class ProductResolver {
 		return await this.productService.getVisited(memberId, input);
 	}
 
-	// getDesignerProducts
-	@Roles(MemberType.DESINER)
+	// getAgentProducts
+	@Roles(MemberType.AGENT)
 	@UseGuards(RolesGuard)
 	@Query((returns) => Products)
-	public async getDesignerProducts(
+	public async getAgentProducts(
 		@Args('input') input: AllProductsInquiry,
 		@AuthMember('_id') memberId: ObjectId,
 	): Promise<Products> {
-		console.log('Query: getDesignerProducts');
-		return await this.productService.getDesignerProducts(memberId, input);
+		console.log('Query: getAgentProducts');
+		return await this.productService.getAgentProducts(memberId, input);
 	}
 
 	//likeTargetProduct

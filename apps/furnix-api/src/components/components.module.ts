@@ -1,20 +1,23 @@
 import { Module } from '@nestjs/common';
 import { MemberModule } from './member/member.module';
-import { LikeService } from './like/like.service';
-import { LikeModule } from './like/like.module';
-import { ViewResolver } from './view/view.resolver';
-import { BoardArticleModule } from './board-article/board-article.module';
-import { CommentModule } from './comment/comment.module';
-import { CommentResolver } from './comment/comment.resolver';
-import { FollowModule } from './follow/follow.module';
 import { ProductModule } from './product/product.module';
 import { AuthModule } from './auth/auth.module';
-import { AuthService } from './auth/auth.service';
+import { CommentModule } from './comment/comment.module';
+import { LikeModule } from './like/like.module';
 import { ViewModule } from './view/view.module';
-import { ViewResolver } from './view/view.resolver';
+import { FollowModule } from './follow/follow.module';
+import { BoardArticleModule } from './board-article/board-article.module';
 
 @Module({
-  imports: [MemberModule, LikeModule, ViewModule, AuthModule, ProductModule, FollowModule, CommentModule, BoardArticleModule],
-  providers: [LikeService, ViewResolver, AuthService, CommentResolver]
+	imports: [
+		MemberModule,
+		LikeModule,
+		ViewModule,
+		AuthModule,
+		ProductModule,
+		FollowModule,
+		CommentModule,
+		BoardArticleModule,
+	],
 })
 export class ComponentsModule {}

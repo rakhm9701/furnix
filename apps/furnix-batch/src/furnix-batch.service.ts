@@ -27,7 +27,7 @@ export class BatchService {
 			.updateMany(
 				{
 					memberStatus: MemberStatus.ACTIVE,
-					memberType: MemberType.DESINER,
+					memberType: MemberType.AGENT,
 				},
 				{ memberRank: 0 },
 			)
@@ -52,10 +52,10 @@ export class BatchService {
 	}
 
 	//batchTopAgents
-	public async batchTopDesigners(): Promise<void> {
+	public async batchTopAgents(): Promise<void> {
 		const agents: Member[] = await this.memberModel
 			.find({
-				memberType: MemberType.DESINER,
+				memberType: MemberType.AGENT,
 				memberStatus: MemberStatus.ACTIVE,
 				memberRank: 0,
 			})
@@ -71,6 +71,6 @@ export class BatchService {
 	}
 
 	getHello(): string {
-		return 'Welcome to Nestar BATCH Server!';
+		return 'Welcome to Furnix BATCH Server!';
 	}
 }

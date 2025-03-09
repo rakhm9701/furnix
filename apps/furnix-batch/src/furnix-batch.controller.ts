@@ -45,11 +45,11 @@ export class BatchController {
 
 	//batchTopAgents
 	@Cron('40 * * * * *', { name: 'BATCH_TOP_AGENTS' })
-	public async batchTopDesigners() {
+	public async batchTopAgents() {
 		try {
-			this.logger['context'] = 'BATCH_TOP_DESIGNERS';
+			this.logger['context'] = 'BATCH_TOP_AGENTS';
 			this.logger.debug('EXCUTED');
-			await this.batchService.batchTopDesigners();
+			await this.batchService.batchTopAgents();
 		} catch (err) {
 			this.logger.error(err);
 		}

@@ -5,7 +5,7 @@ import { Product, Products } from '../../libs/dto/product/product';
 import { Direction, Message } from '../../libs/enums/common.enum';
 import { MemberService } from '../member/member.service';
 import {
-	DesignerProductsInquiry,
+	AgentProductsInquiry,
 	AllProductsInquiry,
 	OrdinaryInquiry,
 	ProductsInquiry,
@@ -189,8 +189,8 @@ export class ProductService {
 		return await this.viewService.getVisitedProducts(memberId, input);
 	}
 
-	// getDesignerProducts
-	public async getDesignerProducts(memberId: Object, input: DesignerProductsInquiry): Promise<Products> {
+	// getAgentProducts
+	public async getAgentProducts(memberId: Object, input: AgentProductsInquiry): Promise<Products> {
 		const { productStatus } = input.search;
 		if (productStatus === ProductStatus.DELETE) throw new InternalServerErrorException(Message.NOT_ALLOWED_REQUEST);
 
