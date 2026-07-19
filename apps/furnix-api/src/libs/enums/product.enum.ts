@@ -1,12 +1,11 @@
 import { registerEnumType } from '@nestjs/graphql';
 //** ProductType **//
 export enum ProductType {
-	WOOD = 'WOOD',
-	METAL = 'METAL',
-	GLASS = 'GLASS',
-	PLASTIC = 'PLASTIC',
-	LEATHER = 'LEATHER',
-	FABRIC = 'FABRIC',
+	CHAIR = 'CHAIR',
+	TABLE = 'TABLE',
+	SOFA = 'SOFA',
+	BED = 'BED',
+	CABINET = 'CABINET',
 }
 registerEnumType(ProductType, {
 	name: 'ProductType',
@@ -41,7 +40,7 @@ export enum ProductSize {
 	SMALL = 'SMALL',
 	MEDIUM = 'MEDIUM',
 	LARGE = 'LARGE',
-	EXTRA_LARGE = 'EXTRA LARGE',
+	EXTRA_LARGE = 'EXTRA_LARGE',
 }
 registerEnumType(ProductSize, {
 	name: 'ProductSize',
@@ -64,12 +63,16 @@ registerEnumType(ProductColor, {
 
 //** ProductLocation **//
 export enum ProductLocation {
-	WAREHOUSE = 'WAREHOUSE',
-	SHOWROOM = 'SHOWROOM',
-	ONLINE = 'ONLINE',
-	BRANCH_SEOUL = 'BRANCH SEOUL',
-	BRANCH_BUSAN = 'BRANCH BUSAN',
-	BRANCH_DAEJON = 'BRANCH DAEJON'
+	NEW_YORK = 'NEW_YORK',
+	LOS_ANGELES = 'LOS_ANGELES',
+	CHICAGO = 'CHICAGO',
+	HOUSTON = 'HOUSTON',
+	MIAMI = 'MIAMI',
+	DALLAS = 'DALLAS',
+	ATLANTA = 'ATLANTA',
+	DENVER = 'DENVER',
+	SEATTLE = 'SEATTLE',
+	SAN_FRANCISCO = 'SAN_FRANCISCO',
 }
 registerEnumType(ProductLocation, {
 	name: 'ProductLocation',

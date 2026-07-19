@@ -166,7 +166,7 @@ export class ProductService {
 		if (locationList && locationList.length) match.productLocation = { $in: locationList };
 		if (roomsList && roomsList.length) match.productyRooms = { $in: roomsList };
 		if (bedsList && bedsList.length) match.productyBeds = { $in: bedsList };
-		if (typeList && typeList.length) match.productyType = { $in: typeList };
+		if (typeList && typeList.length) match.productType = { $in: typeList };
 
 		if (pricesRange) match.productPrice = { $gte: pricesRange.start, $lte: pricesRange.end };
 		if (periodsRange) match.createdAt = { $gte: periodsRange.start, $lte: periodsRange.end };

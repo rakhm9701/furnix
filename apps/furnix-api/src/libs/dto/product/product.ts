@@ -19,11 +19,11 @@ export class Product {
 	@Field(() => ProductLocation)
 	productLocation: ProductLocation;
 
-	@Field(() => ProductColor)
-	productColor: ProductColor;
+	@Field(() => ProductColor, { nullable: true })
+	productColor?: ProductColor;
 
-	@Field(() => ProductSize)
-	productSize: ProductSize;
+	@Field(() => ProductSize, { nullable: true })
+	productSize?: ProductSize;
 
 	@Field(() => String)
 	productAddress: string;
