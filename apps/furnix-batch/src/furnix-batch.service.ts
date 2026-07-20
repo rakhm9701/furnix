@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Member } from 'apps/furnix-api/src/libs/dto/member/member';
-import { Product } from 'apps/furnix-api/src/libs/dto/product/product';
-import { MemberStatus, MemberType } from 'apps/furnix-api/src/libs/enums/member.enum';
-import { ProductStatus } from 'apps/furnix-api/src/libs/enums/product.enum';
+import { Member } from '../../furnix-api/src/libs/dto/member/member';
+import { Product } from '../../furnix-api/src/libs/dto/product/product';
+import { MemberStatus, MemberType } from '../../furnix-api/src/libs/enums/member.enum';
+import { ProductStatus } from '../../furnix-api/src/libs/enums/product.enum';
 import { Model } from 'mongoose';
 
 @Injectable()

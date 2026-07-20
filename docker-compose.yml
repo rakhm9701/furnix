@@ -1,0 +1,25 @@
+services:
+  furnix-api:
+    container_name: furnix-api
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PORT_API: ${PORT_API:-3007}
+    ports:
+      - "${PORT_API:-3007}:${PORT_API:-3007}"
+    volumes:
+      - furnix_uploads:/usr/src/furnix/uploads
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:$${PORT_API:-3007}/ >/dev/null 2>&1 || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  furnix_uploads:

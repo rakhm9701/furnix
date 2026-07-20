@@ -5,8 +5,13 @@ import { LoggingInterceptor } from './libs/interceptor/logging.interceptor';
 import { graphqlUploadExpress } from 'graphql-upload';
 import * as express from 'express';
 import { WsAdapter } from '@nestjs/platform-ws';
+import { mkdirSync } from 'fs';
 
 async function bootstrap() {
+	['uploads/member', 'uploads/product', 'uploads/article'].forEach((directory) => {
+		mkdirSync(directory, { recursive: true });
+	});
+
 	const app = await NestFactory.create(AppModule);
 	app.useGlobalPipes(new ValidationPipe());
 	app.useGlobalInterceptors(new LoggingInterceptor());

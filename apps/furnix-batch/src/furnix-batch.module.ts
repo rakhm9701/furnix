@@ -5,8 +5,8 @@ import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { MongooseModule } from '@nestjs/mongoose';
-import MemberSchema from 'apps/furnix-api/src/schemas/Member.model';
-import ProductSchema from 'apps/furnix-api/src/schemas/Product.model';
+import MemberSchema from '../../furnix-api/src/schemas/Member.model';
+import ProductSchema from '../../furnix-api/src/schemas/Product.model';
 
 @Module({
 	imports: [
