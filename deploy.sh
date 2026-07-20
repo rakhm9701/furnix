@@ -1,5 +1,5 @@
-#!/bin/bash
-set -euo pipefail
+#!/bin/sh
+set -eu
 
 cd "$(dirname "$0")"
 
@@ -10,13 +10,12 @@ git checkout -B "$BRANCH" "origin/$BRANCH"
 git reset --hard "origin/$BRANCH"
 
 if docker compose version >/dev/null 2>&1; then
-	COMPOSE=(docker compose)
+	docker compose up -d --build
+	docker compose ps
 elif command -v docker-compose >/dev/null 2>&1; then
-	COMPOSE=(docker-compose)
+	docker-compose up -d --build
+	docker-compose ps
 else
 	echo "Docker Compose is not installed"
 	exit 1
 fi
-
-"${COMPOSE[@]}" up -d --build
-"${COMPOSE[@]}" ps
